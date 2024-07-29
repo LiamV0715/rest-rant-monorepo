@@ -4,7 +4,9 @@ import { CurrentUser } from "../contexts/CurrentUser";
 
 function LoginForm() {
   const history = useHistory();
+
   const { setCurrentUser } = useContext(CurrentUser);
+
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -13,8 +15,10 @@ function LoginForm() {
   const [errorMessage, setErrorMessage] = useState(null);
 
   async function handleSubmit(e) {
+    e.preventDefault();
     const response = await fetch(`http://localhost:5001/authentication/`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
