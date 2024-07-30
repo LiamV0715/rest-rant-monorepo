@@ -1,5 +1,5 @@
 
-function CommentCard({ comment, onDelete }) {
+function CommentCard({ comment, onDelete, currentUser }) {
     let deleteButton = null;
 
     if (currentUser?.userId === comment.authorId) {
