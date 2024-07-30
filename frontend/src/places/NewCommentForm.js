@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, CurrentUser } from "react";
 import { useHistory } from "react-router";
-import { CurrentUser } from "/src/contexts/CurrentUser"
 
 function NewCommentForm({ place, onSubmit }) {
   const [authors, setAuthors] = useState([]);
