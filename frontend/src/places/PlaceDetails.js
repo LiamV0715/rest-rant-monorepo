@@ -88,6 +88,7 @@ function PlaceDetails() {
       stars += "⭐️";
     }
     rating = <h3>{stars} stars</h3>;
+
     comments = place.comments.map((comment) => {
       return (
         <CommentCard
@@ -97,6 +98,21 @@ function PlaceDetails() {
         />
       );
     });
+  }
+
+  let placeActions = null;
+
+  if (currentUser?.role === "admin") {
+    placeActions = (
+      <>
+        <a className="btn btn-warning" onClick={editPlace}>
+          Edit
+        </a>
+        <button type="submit" className="btn btn-danger" onClick={deletePlace}>
+          Delete
+        </button>
+      </>
+    );
   }
 
   return (
